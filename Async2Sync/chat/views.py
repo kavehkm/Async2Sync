@@ -1,3 +1,9 @@
+# dj
+from django.views import View
 from django.shortcuts import render
 
-# Create your views here.
+
+class IndexView(View):
+    """Index View"""
+    def get(self, request):
+        return render(request, 'chat/index.html')
