@@ -1,16 +1,13 @@
-"""
-ASGI config for Async2Sync project.
-
-It exposes the ASGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.0/howto/deployment/asgi/
-"""
-
+# standard
 import os
-
+# dj
 from django.core.asgi import get_asgi_application
+# channels
+from channels.routing import ProtocolTypeRouter
+
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Async2Sync.settings')
 
-application = get_asgi_application()
+application = ProtocolTypeRouter({
+    'http': get_asgi_application()
+})
